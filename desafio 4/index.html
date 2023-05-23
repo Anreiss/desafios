@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Δ</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+            background-color: rgb(240, 255, 240);
+            border: 0.5px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resolvendo Bhaskara</h1>
+    <button onclick="inicio()">Calcular</button>
+    <section id="resultado">
+        <p>Considerando a equação <strong><i> ax² + bx + c = 0</i></strong>, 
+           <br> aperte o botão acima para calcular o valor de Δ.</p>
+    </section>
+
+    <script>
+        function inicio() {
+            let a = parseFloat(window.prompt('Digite o valor de a:'));
+            let b = parseFloat(window.prompt('Digite o valor de b:'));
+            let c = parseFloat(window.prompt('Digite o valor de c:'));
+
+            let delta = b * b - 4 * a * c;
+
+            let res = document.getElementById('resultado');
+            res.innerHTML = "<p>A equação atual é " + a + "x² + " + b + "x + " + c + " = 0"
+            res.innerHTML += "<p>O cálculo realizado será Δ = " + b + "² - 4 . " + a + " . " + c
+            res.innerHTML += "<p>O valor calculado é Δ = " + delta
+        }
+    </script>
+
+</body>
+
+</html>

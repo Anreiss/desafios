@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 1</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+            background-color: rgb(240, 255, 240);
+            border: 0.5px solid; }
+        .if {
+            color: green; 
+            background-color: lightgreen;
+        }
+        .elseif {
+            color: yellow; 
+            background-color: lightyellow;
+        }
+        .else{
+            color: red; 
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do discente</h1>
+    <button onclick="inicio()">Clique para começar!</button>
+    <section id="resultado">
+        <p>Clique no botão acima para informar as notas do aluno!</p>
+    </section>
+    <script>
+        function inicio() {
+    let nome = window.prompt('Qual é o nome do aluno?') 
+    let n1 = parseFloat(window.prompt(`Primeira nota de ${nome}:`))
+    let n2 = parseFloat(window.prompt(`Segunda nota de ${nome}:`))
+    let med = (n1+n2)/2
+
+    let msg
+    if (med > 6) {
+        msg = 'acima de 6, o aluno está <strong class= "if">APROVADO<strong>'
+    } else if (med < 3) {
+        msg = 'abaixo de 3, o aluno está <strong class= "else">REPROVADO<strong>'
+    } else {
+        msg = 'entre 3 e 6, o aluno está em <strong class= "elseif">RECUPERAÇÃO<strong>'
+    }
+
+    let res = document.getElementById('resultado')
+    res.innerHTML = `<p>Analisando a situação de <strong>${nome}<strong>`
+    res.innerHTML += `<p>Com as notas ${n1} e ${n2}, a <strong>média é ${med}<strong>`
+    res.innerHTML += `<p>Com média ${msg}`
+}
+    </script>
+</body>
+</html>

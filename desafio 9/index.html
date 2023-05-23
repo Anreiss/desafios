@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 9</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+            background-color: rgb(240, 255, 240);
+            border: 0.5px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de medidas</h1>
+    <button onclick="inicio()">Converter</button>
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar</p>
+    </section>
+    <script>
+        function inicio() {
+            let m = parseFloat(window.prompt('Digite uma distância em metros (m)'));
+
+            let km = m / 1000;
+            let hm = m / 100;
+            let dam = m / 10;
+            let dm = m * 10;
+            let cm = m * 100;
+            let mm = m * 1000;
+
+            let res = document.getElementById('resultado');
+            res.innerHTML = `<h1>A conversão de ${m} é...`
+            res.innerHTML += `<p>${km}km (Quilômetros)`;
+            res.innerHTML += `<p>${hm}hm (Hectômetro)`;
+            res.innerHTML += `<p>${dam}dam (Decâmetro)`;
+            res.innerHTML += `<p>${dm}dm (Decímetro)`;
+            res.innerHTML += `<p>${cm}cm (Centímetro)`;
+            res.innerHTML += `<p>${mm}mm (Milímetro)`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+            background-color: rgb(240, 255, 240);
+            border: 0.5px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <button onclick="inicio()">Reajustar salário</button>
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+    <script>
+        function inicio() {
+            let nome = window.prompt(`Qual é o nome do funcionário?`);
+            let sa = parseFloat(window.prompt(`Qual é o salário de ${nome}?`));
+            let por = parseFloat(window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`));
+
+            let aumento = sa * (por / 100);
+            let nsa = sa + aumento;
+
+            let res = document.getElementById('resultado');
+            res.innerHTML = `<p>O salário atual era ${sa}R$`
+            res.innerHTML += `<p>Com o aumento de ${por}%, o salário vai aumentar ${aumento.toFixed(2)}R$ no próximo mês.`;
+            res.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar ${nsa.toFixed(2)}R$.`;
+        }
+    </script>
+</body>
+</html>

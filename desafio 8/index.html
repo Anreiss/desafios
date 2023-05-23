@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 8</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+            background-color: rgb(240, 255, 240);
+            border: 0.5px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de temperaturas</h1>
+    <button onclick="inicio()">Converter</button>
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar</p>
+    </section>
+    <script>
+        function inicio() {
+            let cel = parseFloat(window.prompt('Digite uma temperatura em °C (Celsius)'));
+
+            let kel = cel + 273.15;
+            let fahr = (cel * 9/5) + 32;
+
+            let res = document.getElementById('resultado');
+            res.innerHTML = `<h1>A temperatura de ${cel}°C, corresponde a...`
+            res.innerHTML += `<p>${kel.toFixed(1)}°K (Kelvin)`;
+            res.innerHTML += `<p>${fahr.toFixed(1)}°F (Fahrenheit)`;
+        }
+    </script>
+
+</body>
+</html>

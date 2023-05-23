@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 2</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+            background-color: rgb(240, 255, 240);
+            border: 0.5px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <button onclick="inicio()">Verificar</button>
+    <section id="resultado">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </section>
+    <script>
+        function inicio() {
+            let n1 = parseFloat(window.prompt(`Qual era o preço anterior do produto?`));
+            let n2 = parseFloat(window.prompt(`Qual é o preço atual?`));
+
+            let dif;
+            let msg;
+            let varc;
+            if (n1 > n2) {
+                dif = n1 - n2;
+                msg = 'mais barato';
+                varc = 'pra baixo';
+            } else if (n1 < n2) {
+                dif = n2 - n1;
+                msg = 'mais caro';
+                varc = 'pra cima';
+            } else {
+                dif = 0;
+                msg = 'no mesmo preço';
+                varc = '';
+            }
+
+            let por = (dif / n1) * 100;
+            let res = document.getElementById('resultado');
+            res.innerHTML = `<p>O produto custava ${n1}R$ e agora custa ${n2}R$.</p>`;
+            res.innerHTML += `<p>Hoje o produto está ${msg}.</p>`;
+            res.innerHTML += `<p>O produto mudou ${dif.toFixed(2)}R$ em relação ao preço anterior.</p>`;
+            res.innerHTML += `<p>Uma variação de ${por.toFixed(1)}% ${varc}.</p>`;
+        }
+    </script>
